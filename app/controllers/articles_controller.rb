@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "Article başarıyla oluşturuldu"
+      flash[:success] = "Yazı başarıyla oluşturuldu."
       redirect_to @article
     else
       render 'new'
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   def update
 
     if @article.update(article_params)
-      flash[:notice] = "Article güncellendi"
+      flash[:success] = "Yazı güncellendi."
       redirect_to @article
     else
       render 'edit'
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
   def destroy
 
     @article.destroy
-    flash[:notice] = "Article başarıyla silindi"
+    flash[:danger] = "Yazı başarıyla silindi."
     redirect_to @article
   end
 
