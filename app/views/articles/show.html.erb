@@ -1,12 +1,15 @@
-<h1>Article Göster</h1>
-
-<p>
-  Title: <%= @article.title %>
-</p
-
-<p>
-  Description: <%= @article.description %>
-</p>
-
-<%= link_to 'Düzenle', edit_article_path(@article) %> | 
-<%= link_to 'Geri Dön', articles_path %>
+<h2 align="center">
+  Başlık: <%= @article.title %>
+</h2>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h4 class="center description"><strong>İçerik:</strong></h4>
+  <hr>
+  <%= simple_format(@article.description) %>
+  <div class="article-actions">
+    <%= link_to 'Düzenle', edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+    <%= link_to 'Sil', article_path(@article), method: :delete, 
+                                              data: {confirm:"Emin misiniz?"}, 
+                                              class: "btn btn-xs btn-danger" %>
+    <%= link_to 'Tüm Yazıları Göster', articles_path, class: "btn btn-xs btn-success" %>
+  </div>
+</div>
