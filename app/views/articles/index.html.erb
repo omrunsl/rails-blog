@@ -17,6 +17,7 @@
       <td><%= article.description %></td>
       <td><%= link_to 'Düzenle', edit_article_path(article) %></td>
       <td><%= link_to 'Göster', article_path(article) %></td>
+      <td><%= link_to 'Sil', article_path(article), method: :delete, data: {confirm: 'Emin misiniz?'} %></td>
     </tr>
   <% end %>
 </table>
