@@ -9,6 +9,12 @@
         </div>
         <div class="article-body">
           <%= truncate(article.description, length: 100) %>
+          <div class="article-meta-details">
+            <small><%= article.user.username if article.user %>
+            tarafından <%= time_ago_in_words(article.created_at) %> önce oluşturuldu,
+            Son güncelleme tarihi - <%= time_ago_in_words(article.updated_at)  %> önce
+            </small>
+           </div>
         </div
         <div class="article-actions">
           <%= link_to 'Düzenle', edit_article_path(article), class: "btn btn-xs btn-primary" %>
