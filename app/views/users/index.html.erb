@@ -11,6 +11,11 @@
             <%= link_to user.username, user_path(user) %>
           </li>
           <li><small><%= pluralize(user.articles.count, "yazı") if user.articles %></small></li>
+          <% if logged_in? and current_user.admin? %>
+            <li><%= link_to "Kullanıcıyı Sil", user_path(user), method: :delete, 
+                                                                data: { confirm: "Emin misiniz?" } %>
+            </li>
+          <% end %>
         </div>
       </div>
     </ul>
