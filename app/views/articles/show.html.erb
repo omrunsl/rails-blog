@@ -20,11 +20,13 @@
   <h4 class="center description"><strong>İçerik:</strong></h4>
   <hr>
   <%= simple_format(@article.description) %>
-  <div class="article-actions">
-    <%= link_to 'Düzenle', edit_article_path(@article), class: "btn btn-xs btn-primary" %>
-    <%= link_to 'Sil', article_path(@article), method: :delete, 
-                                              data: {confirm:"Emin misiniz?"}, 
-                                              class: "btn btn-xs btn-danger" %>
-    <%= link_to 'Tüm Yazıları Göster', articles_path, class: "btn btn-xs btn-success" %>
-  </div>
+  <% if logged_in? && current_user == @article.user %>
+    <div class="article-actions">
+      <%= link_to 'Düzenle', edit_article_path(@article), class: "btn btn-xs btn-primary" %>
+      <%= link_to 'Sil', article_path(@article), method: :delete, 
+                                                data: {confirm:"Emin misiniz?"}, 
+                                                class: "btn btn-xs btn-danger" %>
+      <%= link_to 'Tüm Yazıları Göster', articles_path, class: "btn btn-xs btn-success" %>
+    </div>
+  <% end %>
 </div>

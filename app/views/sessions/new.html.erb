@@ -1,0 +1,25 @@
+<h1 align="center">Giriş Yap</h1>
+
+<%= form_for(:session, :html => {class: "form-horizontal", role:"form"}, url: login_path) do |f| %>
+  <div class="form-group">
+    <div class="control-label col-sm-2">
+      <%= f.label :email, value: "Email" %>
+    </div>
+    <div class="col-sm-10">
+      <%= f.email_field :email, class: "form-control", placeholder: "Email giriniz", autofocus:true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="control-label col-sm-2">
+      <%= f.label :password, value: "Şifre" %>
+    </div>
+    <div class="col-sm-10">
+      <%= f.password_field :password,   class: "form-control", placeholder: "Şifre", autocomplete: "off" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Giriş Yap", class: 'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+<% end %>
